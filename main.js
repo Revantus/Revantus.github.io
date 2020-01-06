@@ -8,13 +8,18 @@ var gameData = {
 
 function plantTree() {
     gameData.trees += gameData.treesPerClick
-    document.getElementById("treesPlanted").innerHTML = gameData.trees + " Trees Planted"
+    updateGUI()
 }
 
 function cutTreesForGold() {
     if (gameData.trees >= gameData.treesPerGold) {
         gameData.trees -= gameData.treesPerGold
         gameData.gold += gameData.goldPerTrees
-        document.getElementById("goldOnHand").innerHTML = gameData.gold + " Gold"
+        updateGUI()
     }
+}
+
+function updateGUI() {
+    document.getElementById("treesPlanted").innerHTML = gameData.trees + " Trees Planted"
+    document.getElementById("goldOnHand").innerHTML = gameData.gold + " Gold"
 }
